@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+h1{
+    font-family: 'Lobster', cursive;
+    font-size: 6vh;
+}
+.announcements{
+    margin: 4vh auto;
+}
+.row div{
+    display: inline-block;
+    width: 20vw;
+    height: 20vw;
+    border: 1px solid black;
+}
+.x{
+    background-image: url("X.png");
+    background-repeat: repeat;
+    background-size: cover;
+}
+.o{
+    background-image: url("O.png");
+    background-repeat: repeat;
+    background-size: cover;
+}
