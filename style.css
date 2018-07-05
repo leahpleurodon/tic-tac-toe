@@ -11,20 +11,50 @@ h1{
 }
 .announcements{
     margin: 4vh auto;
+    font-size: 3vh;
+}
+.grid{
+    margin: auto;
+}
+.row{
+    display: flex;
+    border-bottom: 2px solid black;
+    width: 39vw;
+    margin: 0 auto;
+}
+.row:last-of-type{
+    border-bottom: none;
 }
 .row div{
-    display: inline-block;
-    width: 20vw;
-    height: 20vw;
-    border: 1px solid black;
+    width: 13vw;
+    height: 13vw;
+}
+.row div:nth-child(2){
+    border-right: 2px solid black;
+    border-left: 2px solid black;
 }
 .x{
-    background-image: url("X.png");
+    background-image: url("images/X.png");
     background-repeat: repeat;
     background-size: cover;
 }
 .o{
-    background-image: url("O.png");
+    background-image: url("images/O.png");
     background-repeat: repeat;
     background-size: cover;
+}
+footer{
+    margin: 4vh 0;
+}
+.hidden{
+    display: none;
+}
+.win-tile{
+    background-color: lightgreen;
+}
+button{
+    border: 1px solid black;
+    font-size: 2.5vh;
+    padding: 15px 15px;
+    border-radius: 5px;
 }
