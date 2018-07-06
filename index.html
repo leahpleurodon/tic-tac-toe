@@ -6,7 +6,7 @@
     <title>Tic Tac Toe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Quicksand" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/style.css" />
 </head>
 <body>
     <header>
@@ -15,28 +15,43 @@
             Some Random announcement
         </section>
     </header>
-    <div class="grid">
-        <div class="row"> 
-            <div id="1"></div>
-            <div id="2"></div>
-            <div id="3"></div>
-         </div>
-        <div class="row">
-            <div id="4"></div>
-            <div id="5"></div>
-            <div id="6"></div>
-        </div>
-        <div class="row">
-            <div id="7"></div>
-            <div id="8"></div>
-            <div id="9"></div>        
-        </div>
-    </div>
-    <footer>
+    <main>
+        <div class="grid">
+            <div class="row"> 
+                <div id="1"></div>
+                <div id="2"></div>
+                <div id="3"></div>
+             </div>
+            <div class="row">
+                <div id="4"></div>
+                <div id="5"></div>
+                <div id="6"></div>
+            </div>
+            <div class="row">
+                <div id="7"></div>
+                <div id="8"></div>
+                <div id="9"></div>        
+            </div>
+        </div>  
+        <section class="scores">
+            <h2>Scores:</h2>
+            <div>
+                <span class="playerx-name">X</span>(X): 
+                <span class="playerx-score">0</span>
+            </div>
+            <div>
+                <span class="playero-name">O</span>(O): 
+                <span class="playero-score">0</span>
+            </div>
+        </section>  
+    </main>
+    <section class = "buttons">
         <button id="start-btn">Start Game</button>
         <button id="reset-btn" class="hidden">New Game</button>
+    </section>
+    <footer>
+        &copy; Leah Eramo 2018
     </footer>
-    <script src="scripts/winCond.js"></script>
-    <script src="scripts/app.js"></script>
+    <script src="assets/scripts/app.js"></script>
 </body>
 </html>

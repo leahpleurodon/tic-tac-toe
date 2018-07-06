@@ -2,15 +2,23 @@ let gridUI = document.querySelector(".grid");
 let announcementUI = document.querySelector(".announcements");
 let startButton = document.getElementById("start-btn");
 let resetButton = document.getElementById("reset-btn");
+let scoresUI = document.querySelector(".scores");
+let scoreXnameUI = document.querySelector(".playerx-name");
+let scoreXscoreUI = document.querySelector(".playerx-score");
+let scoreOnameUI = document.querySelector(".playero-name");
+let scoreOscoreUI = document.querySelector(".playero-score");
 let currentPlayer = "x";
 let playerSquares = {
     x:[],
     o:[]
 };
+
 let players = {
-    x: {name:"x", token:"../images/X.png",score:0},
-    o: {name:"o", token:"../images/O.png",score:0}
-}
+    x: {name:"x",score:0, sound: new Audio("assets/sounds/clickOn.wav")},
+    o: {name:"o",score:0, sound: new Audio("assets/sounds/clickOff.wav")}
+};
+let playerXname = prompt("Enter a name for player X");
+let playerOname = prompt("Enter a name for player O");
 
 const winCombos = [
     [1,2,3],
@@ -38,14 +46,14 @@ const announce = (announement) => {
 const resetGame = () => {
     resetButton.classList.toggle("hidden");
     clearBoard();
-    announce(currentPlayer + " begins...");
+    announce(players[currentPlayer].name + " begins...");
     gridUI.addEventListener("click",takeTurn);
 };
 
 const startGame = () => {
-    startButton.classList.toggle("hidden")
+    startButton.classList.toggle("hidden");
     gridUI.addEventListener("click",takeTurn);
-    announce(currentPlayer + " begins...");
+    announce(players[currentPlayer].name + " begins...");
 };
 const endGame = () =>{
     gridUI.removeEventListener("click",takeTurn);
@@ -64,6 +72,7 @@ const noMoreMoves = () => {
 const markSquare = (event) =>{
     let square = event.target.id;
     event.target.classList.add(currentPlayer);
+    players[currentPlayer].sound.play();
     playerSquares[currentPlayer].push(Number(square));
 };
 
@@ -95,20 +104,30 @@ const takeTurn = (event) =>{
         winningLine = getWinningCombo()
         if(!getWinningCombo() && !noMoreMoves()){
             changePlayer();
-            announce(currentPlayer + "'s turn...");
+            announce(players[currentPlayer].name + "'s turn...");
         }else if(!getWinningCombo() && noMoreMoves()){
             announce("Game over, it's a tie...");
             endGame() 
         }else{
             showWinningLine(winningLine);
-            announce(currentPlayer + " WINS!");
+            announce(players[currentPlayer].name + " WINS!");
             players[currentPlayer].score += 1;
+            scoreXscoreUI.textContent = players.x.score;
+            scoreOscoreUI.textContent = players.o.score;
             changePlayer();
             endGame();
         };        
     };
 };
 
-startButton.addEventListener("click", startGame);
-resetButton.addEventListener("click", resetGame);
-announce("Welcome to tic-tac-toe...");
+const initialSetup = () =>{
+    startButton.addEventListener("click", startGame);
+    resetButton.addEventListener("click", resetGame);
+    players.x.name = (playerXname === "" || playerXname === null ? "x" : playerXname);
+    players.o.name = (playerOname === "" || playerOname === null ? "o" : playerOname);
+    scoreXnameUI.textContent = players.x.name;
+    scoreOnameUI.textContent = players.o.name;
+    announce("Welcome to tic-tac-toe...");
+};
+
+initialSetup();

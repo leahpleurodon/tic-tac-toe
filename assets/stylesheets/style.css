@@ -4,21 +4,38 @@
 body{
     text-align: center;
     font-family: 'Quicksand', sans-serif;
+    background-color: #819595;
 }
 h1{
     font-family: 'Lobster', cursive;
     font-size: 6vh;
+    color: #363946;
+}
+h2{
+    font-family: 'Lobster', cursive;
+    font-size: 3vh;
+    color: #363946;
 }
 .announcements{
     margin: 4vh auto;
     font-size: 3vh;
 }
+main{
+    display:flex;
+}
+.scores{
+    flex:1;
+    border: 2px solid #363946;
+    color: #000000;
+    background-color: #B1B6A6;
+}
 .grid{
     margin: auto;
+    flex:2;
 }
 .row{
     display: flex;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #363946;
     width: 39vw;
     margin: 0 auto;
 }
@@ -30,18 +47,21 @@ h1{
     height: 13vw;
 }
 .row div:nth-child(2){
-    border-right: 2px solid black;
-    border-left: 2px solid black;
+    border-right: 2px solid #363946;
+    border-left: 2px solid #363946;
 }
 .x{
-    background-image: url("images/X.png");
+    background-image: url("../images/X.png");
     background-repeat: repeat;
     background-size: cover;
 }
 .o{
-    background-image: url("images/O.png");
+    background-image: url("../images/O.png");
     background-repeat: repeat;
     background-size: cover;
+}
+.buttons{
+    margin: 4vh 0;
 }
 footer{
     margin: 4vh 0;
@@ -53,8 +73,9 @@ footer{
     background-color: lightgreen;
 }
 button{
-    border: 1px solid black;
+    border: 2px solid #363946;
     font-size: 2.5vh;
     padding: 15px 15px;
-    border-radius: 5px;
+    color: #696773;
+    background-color: #B1B6A6;
 }
